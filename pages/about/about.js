@@ -1,6 +1,6 @@
 
 Page({
- 
+
   /**
    * 页面的初始数据
    */
@@ -23,6 +23,8 @@ Page({
    */
   onLoad: function (options) {
     var stu = wx.getStorageSync('student');
+    var login = this.getUserAbout();
+    console.log('----------------------'+JSON.stringify(login))
     this.setData({ myinfo: stu });
     // console.log(this.data.myinfo);
   },
@@ -46,7 +48,7 @@ Page({
   },
 resetpwd:function(e){
     var no=this.data.myinfo.no;
-    wx.navigateTo({
+    wx.navigateTo({  
       url: '../password/password?no=' + no,
     })
   },
@@ -55,5 +57,12 @@ resetpwd:function(e){
     wx.navigateTo({
       url: '../email/email?no=' + no,
     })
+  },
+
+  getUserAbout:function(){
+    return wx.request({
+      url: 'http://111.231.116.214:1001/spring-cloud-user/user/error',
+    })
+
   }
 })

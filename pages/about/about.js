@@ -60,8 +60,19 @@ resetpwd:function(e){
   },
 
   getUserAbout:function(){
-    return wx.request({
-      url: 'http://111.231.116.214:1001/spring-cloud-user/user/error',
+    wx.request({
+      url: 'http://111.231.116.214:1001/spring-cloud-user/user/login',
+      method: 'POST',
+      data: {
+        "userName":"jasonGu",
+        "passWord":"chao25251325"
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function (res) {
+       console.log('-----------'+JSON.stringify(res.data))
+      }
     })
 
   }

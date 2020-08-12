@@ -1,54 +1,159 @@
-//index.js
-//获取应用实例
-const app = getApp()
+/*
+ * 
+ * WordPres版微信小程序
+ * author: NiZerin
+ * organization: 泽林博客 www.iacblog.com
+ * github:    https://github.com/CrazyNing98/WeChatMiniProgram-Blog
+ * 技术支持微信号：NINGCZ19980501
+ * 开源协议：MIT
+ * 
+ *  *Copyright (c) 2017 https://www.iacblog.com/ All rights reserved.
+ */
+
+var Api = require('../../utils/api.js');
+var wxRequest = require('../../utils/wxRequest.js')
+import config from '../../utils/config.js'
+var pageCount = config.getPageCount;
+
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    postsList: [],
+    postsShowSwiperList: [],
+    isLastPage: false,
+    page: 1,
+    search: '',
+    categories: 0,
+    showerror: "none",
+    showCategoryName: "",
+    categoryName: "",
+    showallDisplay: "block",
+    displayHeader: "none",
+    displaySwiper: "none",
+    floatDisplay: "none",
+    displayfirstSwiper: "none",
+    topNav: []
+
+
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+  formSubmit: function(e) {
+    var url = '../list/list'
+    var key = '';
+    if (e.currentTarget.id == "search-input") {
+      key = e.detail.value;
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+
+      key = e.detail.value.input;
+
+    }
+    if (key != '') {
+      url = url + '?search=' + key;
+      wx.navigateTo({
+        url: url
       })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请输入内容',
+        showCancel: false,
+      });
+
+
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  onShareAppMessage: function() {
+    return {
+      title: '“' + config.getWebsiteName + '”网站微信小程序,基于WordPress版小程序构建.技术支持：www.watch-life.net',
+      path: 'pages/index/index',
+      success: function(res) {
+        // 转发成功
+      },
+      fail: function(res) {
+        // 转发失败
+      }
+    }
   },
+  onPullDownRefresh: function() {
+    var self = this;
+    self.setData({
+      showerror: "none",
+      showallDisplay: "block",
+      displaySwiper: "none",
+      floatDisplay: "none",
+      isLastPage: false,
+      page: 1,
+      postsShowSwiperList: []
+    });
+    this.fetchTopFivePosts();
+    this.fetchPostsData(self.data);
+
+  },
+  onReachBottom: function() {
+    var self = this;
+    if (!self.data.isLastPage) {
+      self.setData({
+        page: self.data.page + 1
+      });
+      console.log('当前页' + self.data.page);
+      this.fetchPostsData(self.data);
+    } else {
+      console.log('最后一页');
+    }
+
+  },
+  onLoad: function(options) {
+    var self = this;
+    self.fetchTopFivePosts();
+    self.setData({
+      topNav: config.getIndexNav
+    });
+
+  },
+  onShow: function(options) {
+    wx.setStorageSync('openLinkCount', 0);
+  },
+  fetchTopFivePosts: function() {
+    var self = this;
+    //取置顶的文章
+    var getPostsRequest = wxRequest.getRequest(Api.getSwiperPosts());
+    getPostsRequest.then(response => {
+        if (response.data.status == '200' && response.data.posts.length > 0) {
+          self.setData({
+            // postsShowSwiperList: response.data.posts,
+            postsShowSwiperList: self.data.postsShowSwiperList.concat(response.data.posts.map(function(item) {
+              //item.firstImage = Api.getContentFirstImage(item.content.rendered);
+              if (item.post_medium_image_300 == null || item.post_medium_image_300 == '') {
+                if (item.content_first_image != null && item.content_first_image != '') {
+                  item.post_medium_image_300 = item.content_first_image;
+                } else {
+                  item.post_medium_image_300 = "../../images/logo700.png";
+                }
+
+              }
+              return item;
+            })),
+            displaySwiper: "block"
+          });
+
+        } else {
+          self.setData({
+            displaySwiper: "none"
+          });
+
+        }
+
+      }).catch(function(response) {
+        console.log(response);
+        self.setData({
+          showerror: "block",
+          floatDisplay: "none"
+        });
+
+      })
+      .finally(function() {
+
+      });
+
+  },
+
 })

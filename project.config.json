@@ -82,7 +82,14 @@
 				{
 					"id": 2,
 					"name": "pages/user",
-					"pathName": "pages/user/user",
+					"pathName": "pages",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
 					"query": "",
 					"scene": null
 				}

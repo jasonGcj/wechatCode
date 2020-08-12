@@ -17,7 +17,7 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/index/index",
         "iconPath": "images/tar-home.png",
         "selectedIconPath": "images/tar-home-on.png",
         "text": "首页"

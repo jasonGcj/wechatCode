@@ -117,23 +117,25 @@ Page({
     //取置顶的文章
     var getPostsRequest = wxRequest.getRequest(Api.getSwiperPosts());
     getPostsRequest.then(response => {
-        if (response.data.status == '200' && response.data.posts.length > 0) {
-          self.setData({
-            // postsShowSwiperList: response.data.posts,
-            postsShowSwiperList: self.data.postsShowSwiperList.concat(response.data.posts.map(function(item) {
-              //item.firstImage = Api.getContentFirstImage(item.content.rendered);
-              if (item.post_medium_image_300 == null || item.post_medium_image_300 == '') {
-                if (item.content_first_image != null && item.content_first_image != '') {
-                  item.post_medium_image_300 = item.content_first_image;
-                } else {
-                  item.post_medium_image_300 = "../../images/logo700.png";
-                }
-
-              }
-              return item;
-            })),
+        if (response.data.code == 200) {
+          self.setData(
+            {
+            postsShowSwiperList: response.data.data,
+            // postsShowSwiperList: self.data.postsShowSwiperList.concat(response.data.data.map(function(item) {
+            //   item.firstImage = Api.getContentFirstImage(item.content.rendered);
+            //   if (item.post_medium_image_300 == null || item.post_medium_image_300 == '') {
+            //     if (item.content_first_image != null && item.content_first_image != '') {
+            //       item.post_medium_image_300 = item.content_first_image;
+            //     } else {
+            //       item.post_medium_image_300 = "../../images/logo700.png";
+            //     }
+            //   }
+            //   item.post_medium_image_300 = "../../images/logo700.png";
+            //   return item;
+            // })),
             displaySwiper: "block"
-          });
+          }
+          );
 
         } else {
           self.setData({

@@ -50,8 +50,9 @@ module.exports = {
 
   //获取首页滑动文章
   getSwiperPosts: function() {
-    var url = HOST_URI_WATCH_LIFE_JSON;
-    url += 'post/swipe';
+    //var url = HOST_URI_WATCH_LIFE_JSON;
+   // url += 'post/swipe';
+   var url = "http://111.231.116.214:1003/image/queryIndexImage"
     return url;
   },
 

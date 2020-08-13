@@ -14,17 +14,6 @@
 <import src="../../templates/common-list.wxml" />
 <import src="../../templates/copyright.wxml" />
 
-<!-- <form catchsubmit="formSubmit" catchreset="formReset" id="search-form">
-  <view class="search-pancel">
-    <input value="" id="search-input" name="input" confirm-type="search" class="search-input" placeholder="搜索你感兴趣的内容..." bindconfirm="formSubmit"></input>
-    <button class="search-button" form-type="submit" size="mini" plain="true">
-      <icon type="search" color="#959595" size="12" />
-    </button>
-  </view>
-</form> -->
-
-
-
 <!-- 首页幻灯片 -->
 <view class="index-header" style="display:{{displaySwiper}}">
   <swiper class="index-swiper" indicator-dots="true" interval="10000" autoplay="true" indicator-color="rgba(255, 255, 255, .2)" indicator-active-color="rgba(255, 255, 255, .7)">
@@ -39,3 +28,112 @@
     </block>
   </swiper>
 </view>
+
+<view class="showerror" style="display:{{showerror}}">
+  <image src="../../images/cry80.png" style="height:100rpx;width:100rpx"></image>
+  <view class="errortext">
+    暂时无法访问网络,下拉重试...
+  </view>
+</view>
+  <!--图标导航-->
+
+<view class="container">
+    <view class="cms-tit">
+          <view class="cms-tit-left"></view>
+          <view class="cms-tit-txt">码农</view>
+          <view class="cms-tit-more" data-foodlink="yeehee"> </view>
+    </view>
+    <view class='top-Nav2'>
+      <navigator url='../hot/hot' hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/JAVA.png'></image>
+          <text>JAVA</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=4" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/PHP.png'></image>
+          <text>PHP</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=26" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/Vue.png'></image>
+          <text>Vue</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=39" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/React.png'></image>
+          <text>React</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="cms-tit">
+          <view class="cms-tit-left"></view>
+          <view class="cms-tit-txt">娱乐</view>
+          <view class="cms-tit-more" data-foodlink="yeehee"> </view>
+    </view>
+    <view class='top-Nav2'>
+      <navigator url='../hot/hot' hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/MONEY.png'></image>
+          <text>我的基金</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=4" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/express.png'></image>
+          <text>快递查询</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=26" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/joke.png'></image>
+          <text>冷笑话</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=39" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/game.png'></image>
+          <text>小游戏</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="cms-tit">
+          <view class="cms-tit-left"></view>
+          <view class="cms-tit-txt">小工具</view>
+          <view class="cms-tit-more" data-foodlink="yeehee"> </view>
+    </view>
+    <view class='top-Nav2'>
+      <navigator url='../hot/hot' hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/calculator.png'></image>
+          <text>计算器</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=4" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/time.png'></image>
+          <text>时间规划局</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=26" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/note.png'></image>
+          <text>备忘录</text>
+        </view>
+      </navigator>
+      <navigator url="../../pages/list/list?categoryID=39" hover-class='none'>
+        <view class='.top-Nav2-item'>
+          <image src='../../images/remoney.png'></image>
+          <text>记账本</text>
+        </view>
+      </navigator>
+    </view>
+</view>
+
+
+
+
+ 

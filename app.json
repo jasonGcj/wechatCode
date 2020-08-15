@@ -1,10 +1,13 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/about/about",
+    "pages/tool/calculator/calculator",
     "pages/logs/logs",
     "pages/user/user"
   ],
   "window":{
+    "enablePullDownRefresh": true,
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "我的个人中心",
@@ -36,6 +39,5 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

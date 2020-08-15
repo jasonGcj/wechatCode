@@ -10,7 +10,7 @@
  */
 
 
- .scroll-view {
+.scroll-view {
   width: 100%;
   white-space: normal;
 }

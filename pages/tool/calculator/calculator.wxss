@@ -1,0 +1,41 @@
+.box{
+  width:100%;
+  height: 700px;
+  background: #000;
+}
+.txt{
+  color: #fff;
+  width: 100%;
+  height:120px;
+  font-size: 50px;
+  text-align: right;
+}
+.boxtn{
+  width:100px;
+  height:100px;
+  display:block;
+  float:left;
+  border-radius: 50%;
+  line-height: 90px;
+  text-align: center;
+  margin-left: 3px;
+  margin-top: 5px;
+  color:#fff;
+  background: #333333;
+  font-weight: bold;
+  font-size: 30px;
+}
+.not{
+  width: 100px;
+}
+.btn{
+  background: #f09a37;
+}
+.btn1{
+  background: #a5a5a5;
+  color:#000;
+}
+.btn2{
+  width: 200px;
+  border-radius: 60%;
+}

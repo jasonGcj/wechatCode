@@ -106,7 +106,7 @@
           <view class="cms-tit-more" data-foodlink="yeehee"> </view>
     </view>
     <view class='top-Nav2'>
-      <navigator url='../hot/hot' hover-class='none'>
+      <navigator url='../tool/calculator/calculator' hover-class='none'>
         <view class='.top-Nav2-item'>
           <image src='../../images/calculator.png'></image>
           <text>计算器</text>

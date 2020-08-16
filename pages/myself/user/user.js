@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
-
+const app = getApp() 
 Page({
   data: {
     motto: 'Hello World',
@@ -42,6 +41,9 @@ Page({
         }
       })
     }
+    wx.setNavigationBarTitle({
+      title: "我的个人中心"
+  })
   },
   getUserInfo: function(e) {
     console.log(e)

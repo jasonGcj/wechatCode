@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<import src="../../templates/copyright.wxml" />
+<import src="../../../templates/copyright.wxml" />
 <view class="readlog-container">
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -9,8 +9,8 @@
   
   <view class='user-cell'>
    <van-cell-group>
-      <van-cell title="热门排行" is-link />
-      <van-cell title="最近浏览" is-link />
+      <van-cell title="热门排行" is-link url="../hot/hot"/>
+      <van-cell title="我的关注" is-link url="../follow/follow"/>
     </van-cell-group>
   </view>
 
@@ -23,7 +23,7 @@
   
   <view class='user-cell'>
     <van-cell-group>
-      <van-cell title="关于作者" is-link url="../about/about"l/>
+      <van-cell title="关于作者" is-link url="../about/about"/>
       <van-cell title="清除缓存" is-link />
     </van-cell-group>
   </view>

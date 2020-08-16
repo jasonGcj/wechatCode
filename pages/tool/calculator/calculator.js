@@ -15,6 +15,13 @@ Page({
     off: false,
   },
 
+  //页面加载的函数
+  onLoad:function(){
+    wx.setNavigationBarTitle({
+      title: "计算器"
+  })
+  },
+
   compute: function (e) {
     var btn_num = e.target.dataset.val;
     var obj = this;
@@ -72,5 +79,5 @@ Page({
       screenNum: obj.data.currentNum
     })
   },
-
+  
 })

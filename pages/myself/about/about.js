@@ -1,3 +1,5 @@
+var Api = require('../../../api/myself/about.js');
+var wxRequest = require('../../../utils/wxRequest.js')
 
 Page({
 
@@ -24,7 +26,7 @@ Page({
   onLoad: function (options) {
     var stu = wx.getStorageSync('student');
     var login = this.getUserAbout();
-    console.log('----------------------'+JSON.stringify(login))
+    console.log(login)
     this.setData({ myinfo: stu });
     // console.log(this.data.myinfo);
   },
@@ -60,20 +62,13 @@ resetpwd:function(e){
   },
 
   getUserAbout:function(){
-    wx.request({
-      url: 'http://111.231.116.214:1001/spring-cloud-user/user/login',
-      method: 'POST',
-      data: {
-        "userName":"jasonGu",
-        "passWord":"chao25251325"
-      },
-      header: {
-        'Accept': 'application/json'
-      },
-      success: function (res) {
-       console.log('-----------'+JSON.stringify(res.data))
-      }
+    var getPostsRequest =wxRequest.postRequest(Api.getUserAbout(), {
+      "userName":"jasonGu",
+      "passWord":"chao25251325"
+    });
+    getPostsRequest.then(response => {
+      console.log(response.data)
+      return response.data;
     })
-
   }
 })

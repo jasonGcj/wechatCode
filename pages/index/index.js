@@ -10,11 +10,9 @@
  *  *Copyright (c) 2017 https://www.iacblog.com/ All rights reserved.
  */
 
-var Api = require('../../utils/api.js');
+var Api = require('../../api/index/index.js');
 var wxRequest = require('../../utils/wxRequest.js')
 import config from '../../utils/config.js'
-var pageCount = config.getPageCount;
-
 
 Page({
   data: {

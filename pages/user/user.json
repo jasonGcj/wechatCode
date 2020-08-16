@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "van-cell": "../../vendor/VantUI/cell/index",
-    "van-cell-group":"../../vendor/VantUI/cell-group/index"
-  }
-}

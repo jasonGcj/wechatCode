@@ -1,14 +1,4 @@
-/*
- * 
- * WordPres版微信小程序
- * author: NiZerin
- * organization: 泽林博客 www.iacblog.com
- * github:    https://github.com/CrazyNing98/WeChatMiniProgram-Blog
- * 技术支持微信号：NINGCZ19980501
- * 开源协议：MIT
- *  *Copyright (c) 2017 https://www.iacblog.com/ All rights reserved.
- * 
- */
+
 function wxPromisify(fn) {
   return function(obj = {}) {
     return new Promise((resolve, reject) => {

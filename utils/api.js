@@ -18,6 +18,7 @@ var indexListType = config.getIndexListType;
 var HOST_URI = 'https://' + domain + '/wp-json/wp/v2/';
 var HOST_URI_WATCH_LIFE_JSON = 'https://' + domain + '/wp-json/watch-life-net/v1/';
 
+
 module.exports = {
   // 获取文章列表数据
   getPosts: function(obj) {

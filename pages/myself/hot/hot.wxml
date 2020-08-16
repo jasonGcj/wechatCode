@@ -1,6 +1,5 @@
 
-<import src="../../templates/top-list.wxml" />
-<import src="../../templates/copyright.wxml" />
+<import src="../../../templates/copyright.wxml" />
 
 
 <view class="top-bar">

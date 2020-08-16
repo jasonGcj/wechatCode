@@ -5,6 +5,7 @@
     "pages/logs/logs",
     "pages/myself/about/about",
     "pages/myself/user/user",
+    "pages/myself/hot/hot",
     "pages/myself/follow/follow"
   ],
   "window": {

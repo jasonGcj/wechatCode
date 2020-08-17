@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/topic/topic",
     "pages/tool/calculator/calculator",
     "pages/logs/logs",
     "pages/myself/about/about",
@@ -11,7 +12,7 @@
   "window": {
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#6082BB",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
   },
@@ -28,7 +29,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/myself/user/user",
+        "pagePath": "pages/topic/topic",
         "iconPath": "images/tar-topic.png",
         "selectedIconPath": "images/tar-topic-on.png",
         "text": "专栏"

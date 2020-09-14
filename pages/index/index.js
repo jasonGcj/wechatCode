@@ -11,8 +11,11 @@
  */
 
 var Api = require('../../api/index/index.js');
-var wxRequest = require('../../utils/wxRequest.js')
+var WxParse = require('../../wxParse/wxParse.js');
+var wxRequest = require('../../utils/wxRequest.js');
+var pageCount = config.getPageCount;
 import config from '../../utils/config.js'
+import util from '../../utils/util.js'
 
 Page({
   data: {
@@ -102,6 +105,7 @@ Page({
   onLoad: function(options) {
     var self = this;
     self.fetchTopFivePosts();
+    self.fetchPostsData(self.data);//加载首页
     self.setData({
       topNav: config.getIndexNav
     });
@@ -155,5 +159,102 @@ Page({
       });
 
   },
+    //获取文章列表数据
+    fetchPostsData: function(data) {
+      var self = this;
+      if (!data) data = {};
+      if (!data.page) data.page = 1;
+      if (!data.categories) data.categories = 0;
+      if (!data.search) data.search = '';
+      if (data.page === 1) {
+        self.setData({
+          postsList: []
+        });
+      };
+      wx.showLoading({
+        title: '正在加载',
+        mask: true
+      });
+      var getPostsRequest = wxRequest.getRequest(Api.queryArticle(data));
+      getPostsRequest
+        .then(response => {
+          if (response.statusCode === 200) {
+            for (var i = 0; i < response.data.data.length; i++) {
+              // console.log(response.data[i].excerpt.rendered);
+              var rendered = response.data.data[i].excerpt;
+              if (rendered === '') {
+                continue
+              }
+              var res = WxParse.wxParse('rendered', 'html', rendered, self, 5, true);
+              // console.log(res);
+              response.data.data[i].excerpt = res;
+            }
+            if (response.data.data.length < pageCount) {
+              self.setData({
+                isLastPage: true
+              });
+            }
+            self.setData({
+              floatDisplay: "block",
+              postsList: self.data.postsList.concat(response.data.data.map(function(item) {
+                var strdate = item.createTime
+                if (item.category_name != null) {
+                  item.categoryImage = "../../images/category.png";
+                } else {
+                  item.categoryImage = "";
+                }
+                if (item.post_thumbnail_image == null || item.post_thumbnail_image == '') {
+                  item.post_thumbnail_image = "../../images/logo700.png";
+                }
+                item.date = util.cutstr(strdate, 31, 1);
+                // console.log(item);
+                return item;
+              })),
+            });
+            setTimeout(function() {
+              wx.hideLoading();
+            }, 900);
+          } else {
+            if (response.data.code == "rest_post_invalid_page_number") {
+              self.setData({
+                isLastPage: true
+              });
+              wx.showToast({
+                title: '没有更多内容',
+                mask: false,
+                duration: 1500
+              });
+            } else {
+              wx.showToast({
+                title: response.data.message,
+                duration: 1500
+              })
+            }
+          }
+        })
+        .catch(function(response) {
+          if (data.page == 1) {
+            self.setData({
+              showerror: "block",
+              floatDisplay: "none"
+            });
+  
+          } else {
+            console.log(response);
+            wx.showModal({
+              title: '加载失败',
+              content: '加载数据失败,请重试.',
+              showCancel: false,
+            });
+            self.setData({
+              page: data.page - 1
+            });
+          }
+        })
+        .finally(function(response) {
+          wx.hideLoading();
+          wx.stopPullDownRefresh();
+        });
+    },
 
 })

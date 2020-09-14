@@ -4,13 +4,17 @@
  * author: GCJ
  */
 import config from '../../utils/config.js';
-var domain = config.getRootDomain;
-var INDEX_URL = "http://"+domain+":1003"
+var INDEX_URL = config.getRootDomain;
 
 module.exports = {
- //获取首页滑动文章
+ //获取轮播图
  getSwiperPosts: function() {
-  var url = INDEX_URL+"/image/queryIndexImage";
+  var url = INDEX_URL+"/spring-cloud-article/image/queryIndexImage";
+   return url;
+ },
+
+ queryArticle: function() {
+  var url = INDEX_URL+"/spring-cloud-article/article/queryArticle";
    return url;
  },
  

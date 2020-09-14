@@ -36,7 +36,9 @@ function getRequest(url, data) {
     method: 'GET',
     data: data,
     header: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkd1IiwiZXhwIjoxNTk5OTg1NTU4fQ.iVKWgBkv6jsAT0EoNu25unICaSP0GAPeEDDWU4YS11g",
+      "userName":"jasonGu"
     }
   })
 }
@@ -53,7 +55,9 @@ function postRequest(url, data) {
     method: 'POST',
     data: data,
     header: {
-      "content-type": "application/json"
+      "content-type": "application/json",
+      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkd1IiwiZXhwIjoxNTk5OTg1NTU4fQ.iVKWgBkv6jsAT0EoNu25unICaSP0GAPeEDDWU4YS11g",
+      "userName":"jasonGu"
     },
   })
 }

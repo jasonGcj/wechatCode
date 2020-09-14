@@ -4,13 +4,13 @@
  * author: GCJ
  */
 import config from '../../utils/config.js';
-
 var INDEX_URL = config.getRootDomain;
 
 module.exports = {
- //获取首页滑动文章
- getUserAbout: function() {
-  var url = INDEX_URL+"/spring-cloud-user/user/login";
+ //获取我的关注
+ getMyFollow: function(str) {
+  var url = INDEX_URL+"/spring-cloud-article/myFollow/queryMyFollowInfoByUserId?userId="+str;
    return url;
  },
+ 
 };

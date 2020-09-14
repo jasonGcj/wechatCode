@@ -1,16 +1,6 @@
-/*
- * 
- * WordPres版微信小程序
- * author: NiZerin
- * organization: 泽林博客 www.iacblog.com
- * github:    https://github.com/CrazyNing98/WeChatMiniProgram-Blog
- * 技术支持微信号：NINGCZ19980501
- * 开源协议：MIT
- * 
- *  *Copyright (c) 2017 https://www.iacblog.com/ All rights reserved.
- */
+
 import config from '../../utils/config.js'
-var Api = require('../../utils/api.js');
+var Api = require('../../api/topic/topic.js');
 var Auth = require('../../utils/auth.js');
 var wxRequest = require('../../utils/wxRequest.js');
 var app = getApp();
@@ -43,16 +33,14 @@ Page({
     self.setData({
       categoriesList: []
     });
-    console.log(Api.getCategories());
-    var getCategoriesRequest = wxRequest.getRequest(Api.getCategories());
+    var getCategoriesRequest = wxRequest.getRequest(Api.getMyFollow('0000001'));
     getCategoriesRequest.then(response => {
         if (response.statusCode === 200) {
           self.setData({
             floatDisplay: "block",
-            categoriesList: self.data.categoriesList.concat(response.data.map(function(item) {
-              if (typeof(item.category_thumbnail_image) == "undefined" || item.category_thumbnail_image == "") {
-                item.category_thumbnail_image = "../../images/website.png";
-
+            categoriesList: self.data.categoriesList.concat(response.data.data.map(function(item) {
+              if (typeof(item.categoryThumbnailImage) == "undefined" || item.categoryThumbnailImage == "") {
+                item.categoryThumbnailImage = "../../images/website.png";
               }
               item.subimg = "subscription.png";
               return item;
@@ -114,16 +102,16 @@ Page({
                   subimg = "subscription-on.png";
                   subflag = "1";
                 }
-                var category_thumbnail_image = "";
-                if (typeof(categoriesList[i].category_thumbnail_image) == "undefined" || categoriesList[i].category_thumbnail_image == "") {
-                  category_thumbnail_image = "../../images/website.png";
+                var categoryThumbnailImage = "";
+                if (typeof(categoriesList[i].categoryThumbnailImage) == "undefined" || categoriesList[i].categoryThumbnailImage == "") {
+                  categoryThumbnailImage = "../../images/website.png";
                 } else {
-                  category_thumbnail_image = categoriesList[i].category_thumbnail_image;
+                  categoryThumbnailImage = categoriesList[i].categoryThumbnailImage;
                 }
 
               }
               var cat = {
-                "category_thumbnail_image": category_thumbnail_image,
+                "categoryThumbnailImage": categoryThumbnailImage,
                 "description": categoriesList[i].description,
                 "name": categoriesList[i].name,
                 "id": categoriesList[i].id,

@@ -20,7 +20,7 @@
         <block wx:key="id" wx:for="{{categoriesList}}">
             <view class="list-item">
                 <view>
-                    <image src="{{item.category_thumbnail_image}}" class="cover" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex"></image>
+                    <image src="{{item.categoryThumbnailImage}}" class="cover" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex"></image>
                 </view>
                 <view class="content-title" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex">
                     <view class="topic-name">

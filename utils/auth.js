@@ -106,7 +106,7 @@ Auth.agreeGetUser = function(e, wxLoginInfo, authFlag) {
     let args = {};
     let data = {};
     args.js_code = wxLoginInfo.js_code;
-    debugger
+   
     if (authFlag == '0' && e.detail.errMsg == 'getUserInfo:fail auth deny') {
       args.errcode = e.detail.errMsg;
       args.userInfo = {

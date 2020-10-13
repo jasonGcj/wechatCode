@@ -36,9 +36,9 @@ function getRequest(url, data) {
     method: 'GET',
     data: data,
     header: {
-      'Content-Type': 'application/json',
-      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkd1IiwiZXhwIjoxNTk5OTg1NTU4fQ.iVKWgBkv6jsAT0EoNu25unICaSP0GAPeEDDWU4YS11g",
-      "userName":"jasonGu"
+      "content-type": "application/json",
+      "token":wx.getStorageSync('USER_TOKEN'),
+      "username":"jasonGu"
     }
   })
 }
@@ -56,8 +56,8 @@ function postRequest(url, data) {
     data: data,
     header: {
       "content-type": "application/json",
-      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkd1IiwiZXhwIjoxNTk5OTg1NTU4fQ.iVKWgBkv6jsAT0EoNu25unICaSP0GAPeEDDWU4YS11g",
-      "userName":"jasonGu"
+      "token":wx.getStorageSync('USER_TOKEN'),
+      "username":"jasonGu"
     },
   })
 }

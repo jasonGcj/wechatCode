@@ -176,7 +176,7 @@ Page({
   },
   // 跳转至查看文章详情
   redictDetail: function(e) {
-    // console.log('查看文章');
+     console.log('查看文章');
     var id = e.currentTarget.id,
       url = '../detail/detail?id=' + id;
     wx.navigateTo({

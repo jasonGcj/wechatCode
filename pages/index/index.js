@@ -256,5 +256,13 @@ Page({
           wx.stopPullDownRefresh();
         });
     },
+      // 跳转至查看文章详情
+  redictDetail: function(e) {
+    var id = e.currentTarget.id,
+     url = '../detail/detail?id=' + id;
+   wx.navigateTo({
+     url: url
+   })
+ },
 
 })

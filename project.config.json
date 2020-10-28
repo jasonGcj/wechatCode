@@ -92,6 +92,12 @@
 					"pathName": "pages/index/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "utils",
+					"scene": null
 				}
 			]
 		}

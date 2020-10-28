@@ -67,7 +67,10 @@ resetpwd:function(e){
       "passWord":"chao25251325"
     });
     getPostsRequest.then(response => {
-      console.log(response.data)
+      if(response.data.code == 200){
+        wx.setStorageSync('USER_TOKEN', response.data.data)
+      }
+      console.log(wx.getStorageSync('USER_TOKEN'))
       return response.data;
     })
   }

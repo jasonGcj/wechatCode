@@ -256,5 +256,21 @@ Page({
           wx.stopPullDownRefresh();
         });
     },
-
+    /**
+     * 查看文章详情
+     * @param {*} data 
+     */
+    redictDetail: function (data) {
+      var articleId = data.currentTarget.id
+      if(articleId==null || articleId ==''){
+        return;
+      }
+      var getPostsRequest = wxRequest.getRequest(Api.querySomeOneArticle(articleId));
+      getPostsRequest.then(response=>{
+        var result = response.data
+          if(result.ok){
+            console.log(result.data)
+          }
+      })
+    },
 })

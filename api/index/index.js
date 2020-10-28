@@ -17,5 +17,10 @@ module.exports = {
   var url = INDEX_URL+"/spring-cloud-article/article/queryArticle";
    return url;
  },
+
+ querySomeOneArticle: function(str) {
+  var url = INDEX_URL+"/spring-cloud-article/article/querySomeOneArticle?id="+str;
+   return url;
+ },
  
 };

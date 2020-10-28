@@ -36,9 +36,9 @@ function getRequest(url, data) {
     method: 'GET',
     data: data,
     header: {
-      'Content-Type': 'application/json',
-      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkd1IiwiZXhwIjoxNTk5OTg1NTU4fQ.iVKWgBkv6jsAT0EoNu25unICaSP0GAPeEDDWU4YS11g",
-      "userName":"jasonGu"
+      "content-type": "application/json",
+      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkZ6aCIsImV4cCI6MTU5OTk4NzY2M30.uFH7j7GijLsXC67RFs6SlZp5on5lx-a3-ZS9zyFUPx8",
+      "userName":"jasonFzh"
     }
   })
 }
@@ -56,8 +56,8 @@ function postRequest(url, data) {
     data: data,
     header: {
       "content-type": "application/json",
-      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkd1IiwiZXhwIjoxNTk5OTg1NTU4fQ.iVKWgBkv6jsAT0EoNu25unICaSP0GAPeEDDWU4YS11g",
-      "userName":"jasonGu"
+      "token":"eyJhbGciOiJIUzI1NiIsIlR5cGUiOiJKd3QiLCJ0eXAiOiJKV1QifQ.eyJwYXNzV29yZCI6IjQ5ZWRjZGI0YjlhNjI2MTI1YjgyNjMyNjQ3MmJlMTI4IiwidXNlck5hbWUiOiJqYXNvbkZ6aCIsImV4cCI6MTU5OTk4NzY2M30.uFH7j7GijLsXC67RFs6SlZp5on5lx-a3-ZS9zyFUPx8",
+      "userName":"jasonFzh"
     },
   })
 }
